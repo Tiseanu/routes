@@ -1,7 +1,30 @@
+import { Route, Switch } from 'react-router-dom';
+import Welcome from './pages/Welcome';
+import Products from './pages/Products';
+import Product from './pages/Product';
+import Contact from './pages/Contact';
+import Header from './components/Header';
+
 function App() {
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <Header />
+      <main>
+        <Switch>
+          <Route path="/homepage">
+            <Welcome />
+          </Route>
+          <Route path="/products" exact>
+            <Products />
+          </Route>
+          <Route path="/products/:pid">
+            <Product />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+        </Switch>
+      </main>
     </div>
   );
 }
